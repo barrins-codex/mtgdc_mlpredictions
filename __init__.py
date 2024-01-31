@@ -30,8 +30,9 @@ class DataPreparation:
         "NombreCarteMana4": [],
     }
 
-    def __init__(self) -> None:
-        pass
+    def __init__(self, liste: ImportDecks = ImportDecks()) -> None:
+        if len(liste.decks) > 0:
+            self.decks = liste.decks
 
     def load_decks(self) -> None:
         liste_decks = ImportDecks.from_directory("mtgdc_decklists/decklists")
