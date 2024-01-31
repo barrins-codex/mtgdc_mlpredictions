@@ -20,6 +20,7 @@ def train():
     xgboost_model.fit()
     xgboost_model.dump(DIRECTORY / "xgboost_model.pkl")
     xgboost_metrics = xgboost_model.evaluate_model()
+    print("XGBoost Metrics:", xgboost_metrics)
 
     print(".", "Random Forest")
     randomforest_model = RandomForest()
@@ -27,8 +28,6 @@ def train():
     randomforest_model.fit()
     randomforest_model.dump(DIRECTORY / "rdmforest_model.pkl")
     randomforest_metrics = randomforest_model.evaluate_model()
-
-    print("XGBoost Metrics:", xgboost_metrics)
     print("Random Forest Metrics:", randomforest_metrics)
 
 
@@ -45,13 +44,13 @@ def predict():
     xgboost_model = XGBoost.load_from_model(DIRECTORY / "xgboost_model.pkl")
     predictions = xgboost_model.predict(data_preparation.get_X_y()[0])
     for idx, deck in enumerate(liste_decks.decks):
-        print("XGBoost", deck["commander"], ":", predictions, "lands")
+        print("XGBoost", deck["commander"], ":", predictions[idx], "lands")
 
     print(".", "Random Forest")
-    xgboost_model = RandomForest.load_from_model(DIRECTORY / "rdmforest_model.pkl")
-    predictions = xgboost_model.predict(data_preparation.get_X_y()[0])
+    randomforest_model = RandomForest.load_from_model(DIRECTORY / "rdmforest_model.pkl")
+    predictions = randomforest_model.predict(data_preparation.get_X_y()[0])
     for idx, deck in enumerate(liste_decks.decks):
-        print("Random Forest", deck["commander"], ":", predictions, "lands")
+        print("Random Forest", deck["commander"], ":", predictions[idx], "lands")
 
 
 if __name__ == "__main__":
@@ -59,4 +58,4 @@ if __name__ == "__main__":
     train()
 
     print("----------", "Prédictions sur des decks")
-    predict()  # Needs to be revised
+    predict()
