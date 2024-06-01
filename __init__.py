@@ -5,12 +5,12 @@ from pathlib import Path
 import joblib
 import optuna
 import pandas as pd
+from mtgdc_carddata import CardDatabase
 from sklearn import metrics
 from sklearn.ensemble import RandomForestRegressor
 from sklearn.model_selection import train_test_split
 from xgboost import XGBRegressor
 
-from mtgdc_carddata import CardDatabase
 from mtgdc_decklists import ImportDecks
 
 DATABASE = CardDatabase()

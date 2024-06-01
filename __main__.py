@@ -73,10 +73,10 @@ def predict(links: str | list = ""):
 
 if __name__ == "__main__":
     links = [
-        #"https://www.moxfield.com/decks/fnD6JHj-I0Gb_cKausknKA",  # Ertai Resurrected
+        # "https://www.moxfield.com/decks/fnD6JHj-I0Gb_cKausknKA",  # Ertai Resurrected
         "https://www.moxfield.com/decks/sswIvKF-9Uyiisu11z4gPw",  # Aragorn, King of Gondor
-        #"https://www.moxfield.com/decks/HYtf4WoZ2EiLSok2gI1WRg",  # Ghyrson Starn, Kelermorph
-        #"https://www.moxfield.com/decks/qxlD4JeXxESYK5AYSlOEdg",  # Marath, Will of the Wild
+        # "https://www.moxfield.com/decks/HYtf4WoZ2EiLSok2gI1WRg",  # Ghyrson Starn, Kelermorph
+        # "https://www.moxfield.com/decks/qxlD4JeXxESYK5AYSlOEdg",  # Marath, Will of the Wild
     ]
 
     print("----------", "Prédictions sur des decks")
